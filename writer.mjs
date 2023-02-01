@@ -1,6 +1,6 @@
 import Hyperswarm from 'hyperswarm';
 import Hypercore from 'hypercore';
-import goodbye from 'graceful-bye';
+import goodbye from 'graceful-goodbye';
 import b4a from 'b4a';
 
 const swarm = new Hyperswarm();
