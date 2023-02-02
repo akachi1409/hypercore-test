@@ -7,7 +7,7 @@ import b4a from "b4a";
 const swarm = new Hyperswarm();
 goodbye(() => swarm.destroy());
 // , process.argv[2]
-const core = new Hypercore('./reader-storage', process.argv[2])
+const core = new Hypercore("./writer-storage", { valueEncoding: "json" })
 await core.ready();
 
 console.log("block length:", core.length);
