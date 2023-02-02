@@ -5,13 +5,14 @@ import goodbye from "graceful-goodbye";
 const swarm = new Hyperswarm();
 goodbye(() => swarm.destroy());
 // , process.argv[2]
-const core = new Hypercore("/Hyperbee-books");
+const core = new Hypercore('./reader-storage', process.argv[2])
 await core.ready();
+
 console.log("block length:", core.length);
 
-console.log("discory key:", process.argv[2])
 const foundPeers = core.findingPeers();
-swarm.join(process.argv[2]);
+
+swarm.join(core.discoveryKey);
 swarm.on("connection", (conn) => {
     console.log("swarm connected")
   core.replicate(conn);
