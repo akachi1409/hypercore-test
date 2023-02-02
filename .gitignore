@@ -5,6 +5,7 @@
 /.pnp
 .pnp.js
 /writer-storage
+/reader-storage
 # testing
 /coverage
 
