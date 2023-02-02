@@ -11,8 +11,8 @@ await core.ready();
 console.log("block length:", core.length);
 
 const foundPeers = core.findingPeers();
-
-swarm.join(core.discoveryKey);
+const tempKey = b4a.alloc(32).fill("game-room-002")
+swarm.join(tempKey);
 swarm.on("connection", (conn) => {
     console.log("swarm connected")
   core.replicate(conn);

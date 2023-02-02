@@ -15,8 +15,8 @@ console.log("core length:", core.length);
 const firstBlock = await core.get(3, { valueEncoding: "binary" });
 console.log("first block:", firstBlock);
 // process.stdin.on('data', data=> core.append(data));
-
-swarm.join(core.discoveryKey);
+const tempKey = b4a.alloc(32).fill("game-room-002")
+swarm.join(tempKey);
 swarm.on("connection", (conn) => {
   console.log("connected in mjs");
   core.replicate(conn);
